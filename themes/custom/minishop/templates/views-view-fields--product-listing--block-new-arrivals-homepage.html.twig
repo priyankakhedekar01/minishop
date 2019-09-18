@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default view template to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="slider-item js-fullheight">
+	<div class="overlay"></div>
+  <div class="container-fluid p-0">
+    <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+    	<img class="one-third order-md-last img-fluid" src="{{ fields.field_hero_image.content|striptags }}">
+      <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+      	<div class="text">
+      		<span class="subheading">#New Arrival</span>
+      		<div class="horizontal">
+            <h1 class="mb-4 mt-3">{{ fields.field_hero_title.content }}</h1>
+            <p class="mb-4">{{ fields.field_hero_description.content }}</p>      
+            <p><a href="/node/{{ row.nid }}" class="btn-custom">Discover Now</a></p>
+          </div>
+        </div>
+      </div>
+  	</div>
+  </div>
+</div>

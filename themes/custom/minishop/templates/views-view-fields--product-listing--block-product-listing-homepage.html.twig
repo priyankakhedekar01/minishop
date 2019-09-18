@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Default view template to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="product d-flex flex-column">
+	<a href="#" class="img-prod">{{ fields.field_product_image.content }}
+    <span class="status">{{ fields.field_product_stat.content }}</span>
+		<div class="overlay"></div>
+	</a>
+	<div class="text py-3 pb-4 px-3">
+		<div class="d-flex">
+			<div class="cat">
+				<span>{{ fields.field_product_category.content }}</span>
+			</div>
+			<div class="rating">
+				<p class="text-right mb-0">
+					<a href="#"><span class="ion-ios-star-outline"></span></a>
+					<a href="#"><span class="ion-ios-star-outline"></span></a>
+					<a href="#"><span class="ion-ios-star-outline"></span></a>
+					<a href="#"><span class="ion-ios-star-outline"></span></a>
+					<a href="#"><span class="ion-ios-star-outline"></span></a>
+				</p>
+			</div>
+		</div>
+		<h3><a href="#">{{ fields.title.content }}</a></h3>
+		<div class="pricing">
+      {% if fields.field_product_deal_price.raw is empty %}
+        <p class="price"><span>{{ fields.field_product_price.content }}</span></p>
+      {% else %}
+        <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
+      {% endif %}
+		</div>
+		<p class="bottom-area d-flex px-3">
+			<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+			<a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+		</p>
+	</div>
+</div>
